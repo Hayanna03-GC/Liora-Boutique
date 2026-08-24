@@ -1,0 +1,353 @@
+body{
+	 background: #f4eee8;
+}
+
+header{
+    background-color: #ffb7e9;
+    text-align: center;
+    height: 30px;
+    padding-top: 11px;
+}
+
+.segundario{
+    background-color: white;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 2%;
+    
+}
+
+.segundario ul{
+		margin:0;
+		padding: 0;
+		list-style:none;
+		margin-right:30px;
+}
+
+.segundario li{
+		 display:inline-block;
+         margin-right:10px;
+}
+
+.segundario a{
+		text-decoration:none;
+	    font-weight:bold;
+	    color:#765;
+	    padding:5px;
+	    padding-bottom: 8px;
+}
+
+.segundario a:hover{
+		color: #333;
+		border-bottom: 2px solid #ff80d9;
+}
+
+.segundario a.activo{
+    border-bottom: 2px solid #ff80d9;
+}
+
+
+
+
+.logo{
+
+    width:100px;
+    height:70px;
+    position:absolute;
+    left:30px;
+    top:50%;
+    transform:translateY(-51%);
+}
+
+
+.producto{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:60px;
+    margin:50px auto;
+    width:80%;
+}
+
+.imagen-producto{
+    width:45%;
+    text-align:center;
+}
+
+.blusa-raso{
+    width:560px;
+    height:550px;
+    border-radius: 20px;
+}
+
+.blanca{
+	height: 200px;
+	border-radius: 10px;
+	
+}
+
+.negra{
+	height: 200px;
+	border-radius: 10px;
+	padding-top: 2%;
+}
+
+.bcafe{
+	height: 200px;
+	border-radius: 10px;
+	padding-top: 2%;
+}
+
+
+
+.blusaN{
+	
+    width:560px;
+    height:540px;
+    border-radius: 20px;
+}
+
+.blusa-es{
+	
+    width:560px;
+    height:540px;
+    border-radius: 20px;
+}
+
+.hombrera{
+	
+    width:560px;
+    height:540px;
+    border-radius: 20px;
+}
+
+.corta{
+	
+    width:560px;
+    height:510px;
+    border-radius: 20px;
+}
+
+.topM{
+	
+    width:560px;
+    height:510px;
+    border-radius: 20px;
+}
+
+.topV{
+	
+    width:530px;
+    height:480px;
+    border-radius: 20px;
+}
+
+.topC{
+	
+    width:530px;
+    height:480px;
+    border-radius: 20px;
+}
+
+.basico{
+	
+    width:530px;
+    height:480px;
+    border-radius: 20px;
+}
+
+.topLa{
+	
+    width:530px;
+    height:480px;
+    border-radius: 20px;
+}
+
+.bodyMan{
+	
+    width:530px;
+    height:480px;
+    border-radius: 20px;
+}
+
+.bodyblan{
+	
+    width:530px;
+    height:480px;
+    border-radius: 20px;
+}
+
+.bodyT{
+	
+    width:530px;
+    height:480px;
+    border-radius: 20px;
+}
+
+.encaje{
+	
+    width:530px;
+    height:480px;
+    border-radius: 20px;
+}
+
+.pelo{
+	
+    width:530px;
+    height:480px;
+    border-radius: 20px;
+}
+
+.blanca:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.negra:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.bcafe:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+
+
+.info{
+    width:45%;
+}
+
+.info h3{
+    font-size:28px;
+}
+
+.info h4{
+    margin-top:25px;
+}
+
+.tallas{
+    display:flex;
+    gap:10px;
+    border-radius: 5px;
+    
+}
+
+.tallas span{
+    border:1px solid #ececec;
+    padding:10px 15px;
+    background:white;
+}
+
+.s:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.m:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.l:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.xl:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+
+
+.color{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid #bdbdbd;
+}
+.colores{
+    display:flex;
+    gap:4px;
+}
+
+
+.blanco{
+    background-color: white;
+}
+
+.negro{
+    background-color: black;
+}
+
+.cafe{
+    background-color: #aa5e40;
+}
+
+.verde{
+	background-color: #004a00;
+}
+
+.azul{
+	background-color: #682cff;
+}
+
+.color:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.compra{
+    display: inline-block;
+    background: #d88989;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+
+footer{
+	height: 11%;
+	background-color: #ffffff
+}
+
+.informacion{
+	text-align: center;
+	margin-top: 150px;
+	padding-top: 4%;
+}
+
+.footer{
+	display: flex;
+    justify-content: center;   
+    padding-top:3%; 
+         
+}
+
+.footer a{
+	text-decoration: none;
+	color: #000000;
+	padding: 0 15px;
+    border-right: 1px solid black;
+}
+
+
+.footer a:last-child{
+    border-right: none;
+}
+
+
+.desarrollador{
+    text-align: center;
+    margin-top: 5%;
+    color: #666;
+    font-size: 13px;
+}

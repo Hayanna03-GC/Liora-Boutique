@@ -1,0 +1,396 @@
+<?php
+	include_once("DBConexion.php");
+
+	$nombre = "";
+	$correo = "";
+	$mensaje = "";
+	$Resp = FALSE;
+	$mensajeVentana = "";
+
+	if(isset($_POST["nombre"])){
+
+	    $nombre = $_POST["nombre"];
+	    $correo = $_POST["correo"];
+	    $mensaje = $_POST["mensaje"];
+
+	    $Sql = "INSERT INTO usuario (nombre, correo, mensaje)
+	            VALUES ('$nombre', '$correo', '$mensaje')";
+
+	    $Resp = @mysqli_query($Conexion, $Sql);
+
+	    if($Resp){
+	        $mensajeVentana = "Mensaje enviado correctamente";
+	    }
+	    else{
+	        $mensajeVentana = "Error al enviar el mensaje";
+	    }
+	}
+
+?>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Contacto</title>
+		<link rel="stylesheet" href="./informacion.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+		 <style>
+	    	.iconos-derecha {
+	    		display: flex;
+	    		align-items: center;
+	    		gap: 15px;
+	    	}
+
+
+	    	.btn-bolsa {
+	    		display: flex;
+	    		align-items: center;
+	    		justify-content: center;
+	    		width: 40px;
+	    		height: 40px;
+	    		color: #c8c8c8;
+	    		text-decoration: none;
+	    		font-size: 22px;
+	    		transition: color 0.3s;
+	    	}
+
+
+	    	.btn-bolsa:hover {
+	    		color: #888;
+	    	}
+
+
+	    	
+	    	.perfil {
+	    		position: relative;
+	    		display: flex;
+	    		align-items: center;
+	    	}
+
+
+	    	.btn-perfil {
+	    		background: none;
+	    		border: none;
+	    		padding: 0;
+	    		margin: 0;
+	    		width: 40px;
+	    		height: 40px;
+	    		display: flex;
+	    		justify-content: center;
+	    		align-items: center;
+	    		cursor: pointer;
+	    		text-decoration: none;
+	    	}
+
+
+	    	.icono-persona {
+	    		display: block;
+	    		width: 22px;
+	    		height: 22px;
+	    		position: relative;
+	    	}
+
+
+	    	.icono-persona::before {
+	    		content: "";
+	    		position: absolute;
+	    		width: 9px;
+	    		height: 9px;
+	    		background: #c8c8c8;
+	    		border-radius: 50%;
+	    		top: 1px;
+	    		left: 7px;
+	    	}
+
+
+	    	.icono-persona::after {
+	    		content: "";
+	    		position: absolute;
+	    		width: 17px;
+	    		height: 11px;
+	    		background: #c8c8c8;
+	    		border-radius: 9px;
+	    		bottom: 1px;
+	    		left: 3px;
+	    	}
+
+
+	    	
+	    	.btn-perfil:hover .icono-persona::before,
+	    	.btn-perfil:hover .icono-persona::after {
+	    		background: #888;
+	    	}
+
+
+	    	.menu-perfil {
+	    		display: none;
+	    		position: absolute;
+	    		right: 0;
+	    		top: 45px;
+	    		width: 180px;
+	    		background-color: white;
+	    		border: 1px solid #ddd;
+	    		box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+	    		z-index: 1000;
+	    	}
+
+
+	    	.nombre-usuario {
+	    		padding: 15px;
+	    		font-weight: bold;
+	    		border-bottom: 1px solid #ddd;
+	    		color: black;
+	    	}
+
+
+	    	.menu-perfil a {
+	    		display: block;
+	    		padding: 12px 15px;
+	    		color: black;
+	    		text-decoration: none;
+	    	}
+
+
+	    	.menu-perfil a:hover {
+	    		background-color: #f2f2f2;
+	    	}
+
+	    
+		.ventana-fondo{
+			position:fixed;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			background:rgba(0,0,0,0.5);
+			z-index:9999;
+		}
+
+		.ventana-mensaje{
+			width:400px;
+			padding:30px;
+			background:white;
+			text-align:center;
+			border-radius:10px;
+			box-shadow:0 5px 20px rgba(0,0,0,0.3);
+		}
+
+		.icono-exito{
+			font-size:50px;
+			color:#d86aa5;
+			margin-bottom:10px;
+		}
+
+		.ventana-mensaje h2{
+			color:#d86aa5;
+		}
+
+		.ventana-mensaje p{
+			color:#555;
+		}
+
+		.ventana-mensaje button{
+			width:150px;
+			padding:12px;
+			margin-top:15px;
+			background:#ff80d9;
+			color:white;
+			border:none;
+			border-radius:5px;
+			font-weight:bold;
+			cursor:pointer;
+		}
+
+		.ventana-mensaje button:hover{
+			background:#d86aa5;
+		}
+	</style>
+	</head>
+	<body class="body-con">
+		
+		<?php if($mensajeVentana != ""){ ?>
+
+		<div class="ventana-fondo" id="ventanaMensaje">
+
+		    <div class="ventana-mensaje">
+
+		        <div class="icono-exito">✓</div>
+
+		        <h2>¡Mensaje enviado!</h2>
+
+		        <p><?php echo($mensajeVentana); ?></p>
+
+		        <button type="button" onclick="cerrarVentana()">ACEPTAR</button>
+
+		    </div>
+
+		</div>
+
+		<?php } ?>
+	
+		<header>Envio a Todo Costa Rica</header>
+	    <br>
+	    <br>
+
+	    <header class="segundario">
+	        <img src="img-icon/logo.png" class="logo">
+		        <ul>
+			        <li><a href="index.php" >Inicio</a></li>
+			        <li><a href="tienda.php">Tienda</a></li>
+			        <li><a href="nosotros.php">Nosotros</a></li>
+			        <li><a href="contacto.php" class="activo">Contacto</a></li>
+		
+		        </ul>
+		        
+		        <div class="iconos-derecha">
+
+
+		    	<a href="carrito.php" class="btn-bolsa" title="Bolsa de compras">
+		    		<i class="bi bi-bag"></i>
+		    	</a>
+
+		    	<div class="perfil">
+
+		    		<?php
+
+		    		if(isset($_SESSION["NomCompleto"])){
+
+		    		?>
+
+		    		<button class="btn-perfil" onclick="mostrarMenu()" title="Mi perfil">
+
+		    			<span class="icono-persona"></span>
+
+		    		</button>
+
+
+		    		<div id="menuPerfil" class="menu-perfil">
+
+		    			<div class="nombre-usuario">
+		    				<?php echo $_SESSION["NomCompleto"]; ?>
+		    			</div>
+
+
+		    			<a href="CerrarSesion.php">
+		    				<i class="bi bi-box-arrow-right"></i>
+		    					Cerrar sesión
+		    			</a>
+
+		    		</div>
+
+
+		    		<?php
+
+		    		} else {
+
+		    		?>
+
+
+		    			<a href="IniciarSesion.php"
+		    			   class="btn-perfil"
+		    			   title="Iniciar sesión">
+
+		    				<span class="icono-persona"></span>
+
+		    			</a>
+
+
+		    		<?php
+
+		    		}
+
+		    		?>
+
+		    	</div>
+
+		    </div>
+	        
+		        
+
+	    </header>
+		
+		  <div class="contacto">
+
+			    <div class="contenido-contacto">
+
+			        <div class="informacion-contacto">
+
+			            <h2>CONTACTO</h2>
+
+			            <p>
+			                Estamos aquí para ayudarte. Si tienes alguna consulta sobre nuestros
+			                productos, tallas, pedidos o necesitas más información, no dudes en
+			                comunicarte con nosotros.
+			            </p>
+
+
+			            <div class="datos-contacto">
+
+			                <h3>INFORMACIÓN DE CONTACTO</h3>
+
+			                <p><strong>Teléfono:</strong> +506 1111-1111</p>
+			                <p><strong>Correo:</strong> LioraCR@email.com</p>
+			                <p><strong>Horario:</strong> Lunes a sábado de 9:00 a.m. a 5:00 p.m.</p>
+
+			            </div>
+
+			        </div>
+
+
+			        <div class="formulario">
+
+			            <h3>ENVÍANOS UN MENSAJE</h3>
+
+			            <form action="contacto.php" method="POST">
+
+			                <label>Nombre</label>
+			                <input type="text" name="nombre">
+
+
+			                <label>Correo electrónico</label>
+			                <input type="text" name="correo">
+
+
+			                <label>Mensaje</label>
+			                <textarea name="mensaje"></textarea>
+
+
+			                <button type="submit">ENVIAR</button>
+
+			            </form>
+
+			        </div>
+
+			    </div>
+
+			</div>
+			
+			<footer>
+		
+				<h4 class="informacion">INFORMACIÓN</h4>
+				
+				<div class="footer">
+					<a href="faq.php">FAQ</a>
+					<a href="guia.php">Guía de tallas</a>
+					<a href="envios.php">Envíos</a><br />
+					<a href="privacidad.php">Política de Privacidad</a>
+					<a href="terminos.php">Términos y Condiciones</a>
+				</div>	
+				
+				<div class="desarrollador">
+				    <p>© 2026 Liora Boutique | Desarrollado por Hayanna Gallo</p>
+				</div>
+	      </footer>
+	      
+	      <script>
+			function cerrarVentana() {
+			    document.getElementById("ventanaMensaje").style.display = "none";
+			}
+		  </script>
+		
+	</body>
+</html>
