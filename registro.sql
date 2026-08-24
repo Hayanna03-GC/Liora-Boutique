@@ -42,11 +42,10 @@ CREATE TABLE IF NOT EXISTS `registro` (
 --
 
 INSERT INTO `registro` (`NomCompleto`, `Email`, `PwdUsuario`, `PwdConfirmar`, `rol`) VALUES
-('Hayanna Gallo C', 'hayanna2014@gmail.com', '12345', '12345', 'admin'),
-('Estif Gallo', 'estif21@gmail.com', '4321', '4321', 'cliente'),
-('Raquel Cucanán', 'Raquel@gmail.com', '1974', '1974', 'cliente'),
-('Junior Gallo', 'JuniorG@gmail.com', '654321', '54321', 'cliente'),
-('Luna Perez', 'luna@gmail.com', '4321', '4321', 'cliente');
+('Usuario Cliente 1', 'cliente1@ejemplo.com', 'cliente123', 'cliente123', 'cliente'),
+('Usuario Cliente 2', 'cliente2@ejemplo.com', 'cliente456', 'cliente456', 'cliente'),
+('Usuario Cliente 3', 'cliente3@ejemplo.com', 'cliente789', 'cliente789', 'cliente'),
+('Usuario Cliente 4', 'cliente4@ejemplo.com', 'cliente000', 'cliente000', 'cliente');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
