@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `correo`, `mensaje`, `estado`) VALUES
-(23, 'Liz', 'Liz@gmail.com', 'hola', 'pendiente');
+(1, 'Usuario Prueba', 'usuario@ejemplo.com', 'Mensaje de prueba', 'pendiente');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
