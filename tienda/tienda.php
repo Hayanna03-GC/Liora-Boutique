@@ -533,11 +533,10 @@
 
 		 function filtrarProductos() {
 
-        // Categoría seleccionada
+      
         let categoriaSeleccionada =
             document.querySelector('input[name="categoria"]:checked').value;
 
-        // Tallas seleccionadas
         let tallasSeleccionadas = [];
 
         document.querySelectorAll('input[name="talla"]:checked')
@@ -545,7 +544,7 @@
                 tallasSeleccionadas.push(talla.value);
             });
 
-        // Color seleccionado
+      
         let colorSeleccionado = "";
 
         let colorActivo = document.querySelector('.colores .seleccionado');
@@ -554,34 +553,34 @@
             colorSeleccionado = colorActivo.dataset.color;
         }
 
-        // Contar productos que se muestran
+        
         let cantidad = 0;
 
-        // Recorrer productos
+       
         document.querySelectorAll('.cuadro').forEach(function(producto) {
 
             let categoria = producto.dataset.categoria;
             let tallas = producto.dataset.tallas.split(" ");
             let colores = producto.dataset.colores.split(" ");
 
-            // Revisar categoría
+          
             let categoriaCorrecta =
                 categoriaSeleccionada === "todas" ||
                 categoria === categoriaSeleccionada;
 
-            // Revisar talla
+           
             let tallaCorrecta =
                 tallasSeleccionadas.length === 0 ||
                 tallasSeleccionadas.some(function(talla) {
                     return tallas.includes(talla);
                 });
 
-            // Revisar color
+            
             let colorCorrecto =
                 colorSeleccionado === "" ||
                 colores.includes(colorSeleccionado);
 
-            // Mostrar u ocultar producto
+         
             if (categoriaCorrecta && tallaCorrecta && colorCorrecto) {
 
                 producto.style.display = "";
@@ -595,7 +594,6 @@
 
         });
 
-        // Cambiar título según categoría
         let titulo = document.getElementById("tituloProductos");
 
         if (categoriaSeleccionada === "todas") {
@@ -616,7 +614,7 @@
 
         }
 
-        // Cambiar cantidad de productos
+    
         let cantidadProductos =
             document.getElementById("cantidadProductos");
 
@@ -629,7 +627,7 @@
 		    }
 
 
-		    // Seleccionar color
+		   
 		    document.querySelectorAll('.colores .color').forEach(function(color) {
 
 		        color.addEventListener('click', function() {
